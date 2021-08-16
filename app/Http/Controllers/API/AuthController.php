@@ -181,7 +181,7 @@ class AuthController extends Controller
             [
                 'name' => 'required|string',
                 'email' => 'required|email|unique:users',
-                'phone' => 'phone:' . setting('countryCode', "GH") . '|unique:users',
+                'phone' => 'phone:' . setting('countryCode', "IN") . '|unique:users',
                 'password' => 'required',
             ],
             $messages = [

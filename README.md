@@ -1,8 +1,8 @@
-# ![Laravel Example App](logo.png)
+# ![Laravel Food App](logo.png)
 
 [![Build Status](https://img.shields.io/travis/gothinkster/laravel-realworld-example-app/master.svg)](https://travis-ci.org/gothinkster/laravel-realworld-example-app) [![Gitter](https://img.shields.io/gitter/room/realworld-dev/laravel.svg)](https://gitter.im/realworld-dev/laravel) [![GitHub stars](https://img.shields.io/github/stars/gothinkster/laravel-realworld-example-app.svg)](https://github.com/gothinkster/laravel-realworld-example-app/stargazers) [![GitHub license](https://img.shields.io/github/license/gothinkster/laravel-realworld-example-app.svg)](https://raw.githubusercontent.com/gothinkster/laravel-realworld-example-app/master/LICENSE)
 
-> ### Example Laravel codebase containing real world examples (CRUD, auth, advanced patterns and more) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
+> ### Example Laravel codebase containing food app examples (CRUD, auth, advanced patterns and more) that adheres to the [FoodApp](https://github.com/dot-com-labs/food-app) spec and API.
 
 This repo is functionality complete — PRs and issues welcome!
 
@@ -18,11 +18,11 @@ Alternative installation is possible without local dependencies relying on [Dock
 
 Clone the repository
 
-    git clone git@github.com:gothinkster/laravel-realworld-example-app.git
+    git clone git@github.com:dot-com-labs/food-app.git
 
 Switch to the repo folder
 
-    cd laravel-realworld-example-app
+    cd food-app
 
 Install all the dependencies using composer
 
@@ -36,10 +36,6 @@ Generate a new application key
 
     php artisan key:generate
 
-Generate a new JWT authentication secret key
-
-    php artisan jwt:generate
-
 Run the database migrations (**Set the database connection in .env before migrating**)
 
     php artisan migrate
@@ -52,12 +48,11 @@ You can now access the server at http://localhost:8000
 
 **TL;DR command list**
 
-    git clone git@github.com:gothinkster/laravel-realworld-example-app.git
-    cd laravel-realworld-example-app
+    git clone git@github.com:dot-com-labs/food-app.git
+    cd food-app
     composer install
     cp .env.example .env
     php artisan key:generate
-    php artisan jwt:generate 
     
 **Make sure you set the correct database connection information before running the migrations** [Environment variables](#environment-variables)
 
@@ -92,7 +87,6 @@ docker run -v $(pwd):/app composer install
 cd ./docker
 docker-compose up -d
 docker-compose exec php php artisan key:generate
-docker-compose exec php php artisan jwt:generate
 docker-compose exec php php artisan migrate
 docker-compose exec php php artisan db:seed
 docker-compose exec php php artisan serve --host=0.0.0.0
@@ -100,21 +94,11 @@ docker-compose exec php php artisan serve --host=0.0.0.0
 
 The api can be accessed at [http://localhost:8000/api](http://localhost:8000/api).
 
-## API Specification
-
-This application adheres to the api specifications set by the [Thinkster](https://github.com/gothinkster) team. This helps mix and match any backend with any other frontend without conflicts.
-
-> [Full API Spec](https://github.com/gothinkster/realworld/tree/master/api)
-
-More information regarding the project can be found here https://github.com/gothinkster/realworld
-
-----------
 
 # Code overview
 
 ## Dependencies
 
-- [jwt-auth](https://github.com/tymondesigns/jwt-auth) - For authentication using JSON Web Tokens
 - [laravel-cors](https://github.com/barryvdh/laravel-cors) - For handling Cross-Origin Resource Sharing (CORS)
 
 ## Folders
@@ -169,7 +153,7 @@ Refer the [api specification](#api-specification) for more info.
  
 # Authentication
  
-This applications uses JSON Web Token (JWT) to handle authentication. The token is passed with each request using the `Authorization` header with `Token` scheme. The JWT authentication middleware handles the validation and authentication of the token. Please check the following sources to learn more about JWT.
+This applications uses Laravel Sanctum (Sanctum) to handle authentication. The token is passed with each request using the `Authorization` header with `Token` scheme. The JWT authentication middleware handles the validation and authentication of the token. Please check the following sources to learn more about JWT.
  
 - https://jwt.io/introduction/
 - https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
