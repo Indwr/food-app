@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WalletTransaction extends BaseModel
 {
-
+    use SoftDeletes;
     protected $with = ["wallet"];
     protected $fillable = ["amount", "ref", "session_id", "wallet_id", "payment_method_id", "status", "is_credit"];
 

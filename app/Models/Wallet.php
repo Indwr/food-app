@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
 class Wallet extends BaseModel
 {
-
+    use SoftDeletes;
     protected $with = ['user'];
     protected $fillable = ["balance", "user_id"];
     protected $casts = [
