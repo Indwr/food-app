@@ -105,7 +105,7 @@ The api can be accessed at [http://localhost:8000/api](http://localhost:8000/api
 
 - `app` - Contains all the Eloquent models
 - `app/Http/Controllers/Api` - Contains all the api controllers
-- `app/Http/Middleware` - Contains the JWT auth middleware
+- `app/Http/Middleware` - Contains the Sanctum auth middleware
 - `app/Http/Requests/Api` - Contains all the api form requests
 - `app/RealWorld/Favorite` - Contains the files implementing the favorite feature
 - `app/RealWorld/Filters` - Contains the query filters used for filtering api requests
@@ -145,7 +145,7 @@ Request headers
 |----------	|------------------	|------------------	|
 | Yes      	| Content-Type     	| application/json 	|
 | Yes      	| X-Requested-With 	| XMLHttpRequest   	|
-| Optional 	| Authorization    	| Token {JWT}      	|
+| Optional 	| Authorization    	| Token {Sanctum}      	|
 
 Refer the [api specification](#api-specification) for more info.
 
