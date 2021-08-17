@@ -22,7 +22,6 @@ class CreateCouponsTable extends Migration
             $table->date('expires_on')->default(now());
             $table->integer('times')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->integer('times')->default(0);
             $table->foreignId('creator_id')->nullable()->constrained('users');
             $table->timestamps();
             $table->softDeletes();
